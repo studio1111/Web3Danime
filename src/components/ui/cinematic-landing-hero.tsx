@@ -151,6 +151,7 @@ export function CinematicHero({
   const mockupRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
   const requestRef = useRef<number | null>(null);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -187,6 +188,33 @@ export function CinematicHero({
   }, []);
 
   useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+
+    const ensurePlayback = () => {
+      if (document.visibilityState === "hidden" || !video.paused) return;
+      void video.play().catch(() => {
+        // Browsers can delay autoplay until the media becomes ready or visible.
+      });
+    };
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.load();
+    ensurePlayback();
+    video.addEventListener("loadeddata", ensurePlayback);
+    video.addEventListener("canplay", ensurePlayback);
+    document.addEventListener("visibilitychange", ensurePlayback);
+
+    return () => {
+      video.removeEventListener("loadeddata", ensurePlayback);
+      video.removeEventListener("canplay", ensurePlayback);
+      document.removeEventListener("visibilitychange", ensurePlayback);
+    };
+  }, []);
+
+  useEffect(() => {
     const isMobile = window.innerWidth < 768;
     const ctx = gsap.context(() => {
       gsap.set(".text-track", { autoAlpha:0, y:60, scale:.85, filter:"blur(20px)", rotationX:-20 });
@@ -215,7 +243,7 @@ export function CinematicHero({
 
       scrollTl
         .to([".hero-text-wrapper",".bg-grid-theme"], { scale:1.15, filter:"blur(20px)", opacity:.2, ease:"power2.inOut", duration:2 }, 0)
-        .to(".hero-video-layer", { scale:1.15, filter:"blur(20px)", opacity:.2, ease:"power2.inOut", duration:2 }, 0)
+        .to(".hero-video-layer", { scale:1.15, filter:"blur(20px)", opacity:0, ease:"power2.inOut", duration:1.5 }, 1.25)
         .to(".main-card", { y:0, ease:"power3.inOut", duration:2 }, 0)
         .to(".main-card", { width:"100%", height:"100%", borderRadius:"0px", ease:"power3.inOut", duration:1.5 })
         .fromTo(".mockup-scroll-wrapper",
@@ -276,6 +304,7 @@ export function CinematicHero({
 
       <div className="hero-video-layer" aria-hidden="true">
         <video
+          ref={heroVideoRef}
           autoPlay
           loop
           muted

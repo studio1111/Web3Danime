@@ -9,8 +9,25 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const HERO_VIDEO_SRC = `${import.meta.env.BASE_URL}Sung Jinwoo Shadow Army Solo Leveling Live Wallpaper(MP4).mp4`;
+
 const INJECTED_STYLES = `
   .gsap-reveal { visibility: hidden; }
+  .hero-video-layer {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    overflow: hidden; background: #000;
+    z-index: 1; pointer-events: none;
+  }
+  .hero-video-layer video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .hero-video-vignette {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at center, rgba(0,0,0,.12) 0%, rgba(0,0,0,.42) 72%, rgba(0,0,0,.72) 100%),
+      linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.12) 45%, rgba(0,0,0,.5) 100%);
+  }
   .film-grain {
     position: absolute; inset: 0; width: 100%; height: 100%;
     pointer-events: none; z-index: 50; opacity: 0.05; mix-blend-mode: overlay;
@@ -99,6 +116,9 @@ const INJECTED_STYLES = `
   .btn-modern-dark:hover { transform:translateY(-3px); background:linear-gradient(180deg,#3f3f46,#27272a); }
   .btn-modern-dark:active { transform:translateY(1px); background:#18181b; }
   .progress-ring { transform:rotate(-90deg); transform-origin:center; stroke-dasharray:402; stroke-dashoffset:402; stroke-linecap:round; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video-layer video { display: none; }
+  }
 `;
 
 export interface CinematicHeroProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -195,6 +215,7 @@ export function CinematicHero({
 
       scrollTl
         .to([".hero-text-wrapper",".bg-grid-theme"], { scale:1.15, filter:"blur(20px)", opacity:.2, ease:"power2.inOut", duration:2 }, 0)
+        .to(".hero-video-layer", { scale:1.15, filter:"blur(20px)", opacity:.2, ease:"power2.inOut", duration:2 }, 0)
         .to(".main-card", { y:0, ease:"power3.inOut", duration:2 }, 0)
         .to(".main-card", { width:"100%", height:"100%", borderRadius:"0px", ease:"power3.inOut", duration:1.5 })
         .fromTo(".mockup-scroll-wrapper",
@@ -252,6 +273,19 @@ export function CinematicHero({
       {...props}
     >
       <style dangerouslySetInnerHTML={{ __html: INJECTED_STYLES }} />
+
+      <div className="hero-video-layer" aria-hidden="true">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          src={HERO_VIDEO_SRC}
+        />
+        <div className="hero-video-vignette" />
+      </div>
+
       <div className="film-grain" aria-hidden="true" />
       <div className="bg-grid-theme pointer-events-none absolute inset-0 z-0 opacity-50" aria-hidden="true" />
 

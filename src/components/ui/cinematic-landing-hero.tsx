@@ -265,11 +265,11 @@ export function CinematicHero({
         <p className="mb-12 max-w-xl text-lg font-light leading-relaxed text-muted-foreground md:text-xl">{ctaDescription}</p>
         <div className="flex flex-col gap-6 sm:flex-row">
           <a href="#app-store" aria-label="Download on the App Store" className="btn-modern-light flex items-center justify-center gap-3 rounded-[1.25rem] px-8 py-4 group focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <span aria-hidden="true" className="text-2xl font-black"></span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 fill-current"><path d="M16.77 12.49c-.02-2.26 1.85-3.35 1.94-3.4a4.18 4.18 0 0 0-3.3-1.79c-1.39-.15-2.74.83-3.45.83-.72 0-1.83-.81-3.01-.79a4.44 4.44 0 0 0-3.73 2.28c-1.61 2.79-.41 6.89 1.15 9.15.78 1.1 1.69 2.33 2.9 2.29 1.16-.05 1.6-.74 3-.74s1.8.74 3.01.72c1.25-.02 2.03-1.12 2.8-2.23a9.18 9.18 0 0 0 1.27-2.58 4 4 0 0 1-2.41-3.74Zm-2.26-6.67a3.98 3.98 0 0 0 .91-2.85 4.07 4.07 0 0 0-2.63 1.36 3.81 3.81 0 0 0-.94 2.75 3.36 3.36 0 0 0 2.66-1.26Z"/></svg>
             <span className="text-left"><span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-500">Download on the</span><span className="block text-xl font-bold leading-none">App Store</span></span>
           </a>
           <a href="#google-play" aria-label="Get it on Google Play" className="btn-modern-dark flex items-center justify-center gap-3 rounded-[1.25rem] px-8 py-4 group focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <span aria-hidden="true" className="text-xl font-black">▶</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6"><path fill="#34a853" d="M3 2.5v19l10.5-9.5L3 2.5Z"/><path fill="#4285f4" d="m13.5 12 3.4-3.1L20.6 11c.8.45.8 1.55 0 2l-3.7 2.1-3.4-3.1Z"/><path fill="#fbbc04" d="m3 21.5 10.5-9.5 3.4 3.1L6.1 22.8c-1.3.7-3.1-.2-3.1-1.3Z"/><path fill="#ea4335" d="M3 2.5 16.9 14.9l3.7-2.1c.8-.45.8-1.55 0-2l-3.7-2.1L6.1 1.2C4.8.5 3 .9 3 2.5Z"/></svg>
             <span className="text-left"><span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Get it on</span><span className="block text-xl font-bold leading-none">Google Play</span></span>
           </a>
         </div>

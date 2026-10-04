@@ -28,6 +28,8 @@ jobs:
         run: npm install
       - name: Test
         run: npm test
+      - name: Prepare hero video
+        run: mkdir -p public && cp "Sung Jinwoo Shadow Army Solo Leveling Live Wallpaper(MP4).mp4" public/hero.mp4
       - name: Build
         run: npm run build
       - name: Setup Pages

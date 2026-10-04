@@ -16,7 +16,7 @@ describe("CinematicHero", () => {
     expect(html).toContain("loop");
     expect(html).toContain("muted");
     expect(html).toContain("playsinline");
-    expect(html).toContain("Sung Jinwoo Shadow Army Solo Leveling Live Wallpaper(MP4).mp4");
+    expect(html).toContain("hero.mp4");
     expect(html).toContain("hero-video-layer");
     expect(html).toContain("hero-video-vignette");
   });

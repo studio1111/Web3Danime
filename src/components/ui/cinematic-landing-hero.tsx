@@ -9,7 +9,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const HERO_VIDEO_SRC = `${import.meta.env.BASE_URL}Sung Jinwoo Shadow Army Solo Leveling Live Wallpaper(MP4).mp4`;
+const HERO_VIDEO_SRC = "/Web3Danime/Sung Jinwoo Shadow Army Solo Leveling Live Wallpaper(MP4).mp4";
 
 const INJECTED_STYLES = `
   .gsap-reveal { visibility: hidden; }

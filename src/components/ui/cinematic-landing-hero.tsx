@@ -114,15 +114,15 @@ export interface CinematicHeroProps extends React.HTMLAttributes<HTMLDivElement>
 }
 
 export function CinematicHero({
-  brandName = "Web3Danime",
-  tagline1 = "Build the future,",
-  tagline2 = "not just another site.",
-  cardHeading = "Immersive by design.",
-  cardDescription = "A cinematic product story built with depth, motion and responsive interaction.",
+  brandName = "Sobers",
+  tagline1 = "Track the journey,",
+  tagline2 = "not just the days.",
+  cardHeading = "Accountability, redefined.",
+  cardDescription = "Sobers empowers sponsors and sponsees in 12-step recovery programs with structured accountability, precise sobriety tracking, and beautiful visual timelines.",
   metricValue = 365,
-  metricLabel = "Days creating",
-  ctaHeading = "Make it cinematic.",
-  ctaDescription = "Turn your product, studio or idea into a memorable interactive landing experience.",
+  metricLabel = "Days Sober",
+  ctaHeading = "Start your recovery.",
+  ctaDescription = "Join thousands of others in the 12-step program and take control of your timeline today.",
   className,
   ...props
 }: CinematicHeroProps) {
@@ -307,7 +307,7 @@ export function CinematicHero({
                           <span className="mb-1 text-[10px] font-bold uppercase tracking-widest text-neutral-400">Today</span>
                           <span className="text-xl font-bold tracking-tight text-white">Journey</span>
                         </div>
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-bold text-neutral-200">WD</div>
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-bold text-neutral-200">JS</div>
                       </div>
 
                       <div className="phone-widget relative mx-auto mb-8 flex h-44 w-44 items-center justify-center drop-shadow-[0_15px_25px_rgba(0,0,0,.8)]">
@@ -343,7 +343,7 @@ export function CinematicHero({
 
                 <div className="floating-badge floating-ui-badge absolute bottom-12 right-[-15px] z-30 flex items-center gap-3 rounded-xl p-3 lg:bottom-20 lg:right-[-80px] lg:gap-4 lg:rounded-2xl lg:p-4">
                   <div className="flex h-8 w-8 items-center justify-center rounded-full border border-indigo-400/30 bg-indigo-500/10 text-base lg:h-10 lg:w-10 lg:text-lg">🤝</div>
-                  <div><p className="text-xs font-bold tracking-tight text-white lg:text-sm">Studio Update</p><p className="text-[10px] font-medium text-blue-200/50 lg:text-xs">Shared successfully</p></div>
+                  <div><p className="text-xs font-bold tracking-tight text-white lg:text-sm">Sponsor Update</p><p className="text-[10px] font-medium text-blue-200/50 lg:text-xs">Shared successfully</p></div>
                 </div>
               </div>
             </div>

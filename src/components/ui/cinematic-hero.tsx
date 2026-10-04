@@ -1,0 +1,1 @@
+export { CinematicHero as default, CinematicHero } from "./cinematic-landing-hero";

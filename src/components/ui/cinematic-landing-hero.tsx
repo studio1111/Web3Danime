@@ -51,11 +51,11 @@ export function CinematicHero({
   const mainCardRef=useRef<HTMLDivElement>(null);
   const mockupRef=useRef<HTMLDivElement>(null);
   const counterRef=useRef<HTMLSpanElement>(null);
-  const frame=useRef<number>();
+  const frame=useRef<number | null>(null);
 
   useEffect(()=>{
     const move=(e:MouseEvent)=>{
-      cancelAnimationFrame(frame.current);
+      if(frame.current!==null) cancelAnimationFrame(frame.current);
       frame.current=requestAnimationFrame(()=>{
         const card=mainCardRef.current, phone=mockupRef.current;
         if(!card||!phone||window.scrollY>window.innerHeight*2)return;
@@ -66,7 +66,7 @@ export function CinematicHero({
       });
     };
     window.addEventListener("mousemove",move,{passive:true});
-    return()=>{window.removeEventListener("mousemove",move);cancelAnimationFrame(frame.current)};
+    return()=>{window.removeEventListener("mousemove",move);if(frame.current!==null) cancelAnimationFrame(frame.current)};
   },[]);
 
   useEffect(()=>{

@@ -19,6 +19,7 @@ describe("CinematicHero", () => {
     expect(html).toContain("hero.mp4");
     expect(html).toContain("hero-video-layer");
     expect(html).toContain("hero-video-vignette");
+    expect(html).toContain("opacity:0, ease:\"power2.inOut\", duration:1.5 }, 1.25");
   });
 
   it("keeps the original cinematic layers and scroll content", () => {
